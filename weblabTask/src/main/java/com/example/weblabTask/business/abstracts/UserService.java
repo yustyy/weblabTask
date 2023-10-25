@@ -13,6 +13,8 @@ public interface UserService {
 	Result Add(User user);
 	
 	DataResult<User> getByEmail(String email);
+	
+	DataResult<User> getByNationalityId(String nationalityId);
 
 	
 	

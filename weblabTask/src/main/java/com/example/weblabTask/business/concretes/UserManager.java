@@ -59,6 +59,23 @@ public class UserManager implements UserService {
 
 
 
+	@Override
+	public DataResult<User> getByNationalityId(String nationalityId) {
+		
+		var user = userDao.findByNationalityId(nationalityId);
+		
+		if(user != null){
+			return new ErrorDataResult<User>(Messages.ThisNationalityIdAlreadyExists);
+		}
+		
+		
+		return new SuccessDataResult<User>(user, Messages.UserRetrievedWithNationalityId);
+		
+		
+	}
+
+
+
 
 
 	

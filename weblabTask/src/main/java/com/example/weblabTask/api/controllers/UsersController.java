@@ -32,10 +32,5 @@ public class UsersController {
 		return userService.getAll();
 		}
 	
-	@PostMapping("/add")
-	public Result Add(@RequestBody User user) {
-		return userService.Add(user);
-	}
-	
 
 }

@@ -12,7 +12,9 @@ public class Messages {
 	public static final String ThisEmailAlreadyInUse = "Bu email zaten kullanımda!";
 	public static final String ThisEmailDoesntExists = "Bu maile sahip bir kullanıcı yok!";
 	public static final String PassworIsdWrong = "Girilen şifre yanlış!";
-	public static final String SuccessfulLogin = "Başarıyla giriş yapıldı!";;
+	public static final String SuccessfulLogin = "Başarıyla giriş yapıldı!";
+	public static final String ThisNationalityIdAlreadyExists = "Bu tcno ile bir kullanıcı kayıtlı!";
+	public static final String UserRetrievedWithNationalityId = "Kullanıcı tcno ile getirildi!";
 	
 	
 }

@@ -1,5 +1,6 @@
 package com.example.weblabTask.business.concretes;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.weblabTask.business.abstracts.AuthService;
@@ -21,7 +22,7 @@ public class AuthManager implements AuthService {
 	
 	private UserService userService;
 	
-	
+	@Autowired
 	public AuthManager(UserService userService) {
 		super();
 		this.userService = userService;
@@ -33,6 +34,10 @@ public class AuthManager implements AuthService {
 		
 		if(userService.getByEmail(userForRegisterDto.getEmail()).isSuccess()) {
 			return new ErrorDataResult<User>(Messages.ThisEmailAlreadyInUse);
+		}
+		
+		if(checkIfNationalityIdExists(userForRegisterDto.getNationalityId())) {
+			return new ErrorDataResult<User>(Messages.ThisNationalityIdAlreadyExists);
 		}
 		
 		
@@ -62,6 +67,19 @@ public class AuthManager implements AuthService {
 		
 		
 	}
+
+	private boolean checkIfNationalityIdExists(String nationalityId) {
+		
+		var user = userService.getByNationalityId(nationalityId);
+		
+		if(user.isSuccess()) {
+			return false;
+		}
+		return true;
+		
+		
+	}
+
 
 	@Override
 	public DataResult<User> Login(UserForLoginDto userForLoginDto) {

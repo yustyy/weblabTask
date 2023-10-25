@@ -14,7 +14,5 @@ public class PasswordHashDto {
 	
 	private byte[] passwordSalt;
 	
-	
-	
 
 }
